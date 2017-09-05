@@ -164,13 +164,129 @@ void GearBall::rotate(int col, int direction, int turn) {
 		else if (col == 0 && direction == 3) {
 
 		}
-		/*left coloum stationary and moving down */
+		/*left coloum stationary and moving down Faces 0,1,2,3
+		are effected and spots 4 5 6 7 8 are replaced with top 
+		face and 9 10 11 12 are replaced with back face */
 		else if (col == 1 && direction == 0) {
+			/*--------update face(0)------------*/
+			/*Center side*/
+			faces[0][4] = LastState[1][4];
+			faces[0][5] = LastState[1][5];
+			faces[0][6] = LastState[1][6];
+			faces[0][7] = LastState[1][7];
+			faces[0][8] = LastState[1][8];
 
+			/*Right side*/
+			faces[0][9] = LastState[3][9];
+			faces[0][10] = LastState[3][10];
+			faces[0][11] = LastState[3][11];
+			faces[0][12] = LastState[3][12];
+
+			/*----------update top(1)----------*/
+			/*Center side*/
+			faces[1][4] = LastState[3][4];
+			faces[1][5] = LastState[3][5];
+			faces[1][6] = LastState[3][6];
+			faces[1][7] = LastState[3][7];
+			faces[1][8] = LastState[3][8];
+
+			/*Right side*/
+			faces[1][9] = LastState[2][9];
+			faces[1][10] = LastState[2][10];
+			faces[1][11] = LastState[2][11];
+			faces[1][12] = LastState[2][12];
+
+			/*----------update back(3)----------*/
+			/*Middle side*/
+			faces[3][4] = LastState[2][4];
+			faces[3][5] = LastState[2][5];
+			faces[3][6] = LastState[2][6];
+			faces[3][7] = LastState[2][7];
+			faces[3][8] = LastState[2][8];
+
+			/*Right side*/
+			faces[3][9] = LastState[0][9];
+			faces[3][10] = LastState[0][10];
+			faces[3][11] = LastState[0][11];
+			faces[3][12] = LastState[0][12];
+
+			/*----------update bottom(2)----------*/
+			/*Left side*/
+			faces[2][4] = LastState[0][4];
+			faces[2][5] = LastState[0][5];
+			faces[2][6] = LastState[0][6];
+			faces[2][7] = LastState[0][7];
+			faces[2][8] = LastState[0][8];
+
+			/*Right side*/
+			faces[2][9] = LastState[1][9];
+			faces[2][10] = LastState[1][10];
+			faces[2][11] = LastState[1][11];
+			faces[2][12] = LastState[1][12];
+
+			copyStates();
 		}
-		/*left coloum stationary and moving up */
+		/*left coloum stationary and moving up Faces 0,1,2,3
+		are effected and spots 4 5 6 7 8 are replaced with bottom 
+		face and 9 10 11 12 are replaced with back face */
 		else if (col == 1 && direction == 1) {
+			/*--------update face(0)------------*/
+			/*Center side*/
+			faces[0][4] = LastState[2][4];
+			faces[0][5] = LastState[2][5];
+			faces[0][6] = LastState[2][6];
+			faces[0][7] = LastState[2][7];
+			faces[0][8] = LastState[2][8];
 
+			/*Right side*/
+			faces[0][9] = LastState[3][9];
+			faces[0][10] = LastState[3][10];
+			faces[0][11] = LastState[3][11];
+			faces[0][12] = LastState[3][12];
+
+			/*----------update top(1)----------*/
+			/*Center side*/
+			faces[1][4] = LastState[0][4];
+			faces[1][5] = LastState[0][5];
+			faces[1][6] = LastState[0][6];
+			faces[1][7] = LastState[0][7];
+			faces[1][8] = LastState[0][8];
+
+			/*Right side*/
+			faces[1][9] = LastState[2][9];
+			faces[1][10] = LastState[2][10];
+			faces[1][11] = LastState[2][11];
+			faces[1][12] = LastState[2][12];
+
+			/*----------update back(3)----------*/
+			/*Middle side*/
+			faces[3][4] = LastState[1][4];
+			faces[3][5] = LastState[1][5];
+			faces[3][6] = LastState[1][6];
+			faces[3][7] = LastState[1][7];
+			faces[3][8] = LastState[1][8];
+
+			/*Right side*/
+			faces[3][9] = LastState[0][9];
+			faces[3][10] = LastState[0][10];
+			faces[3][11] = LastState[0][11];
+			faces[3][12] = LastState[0][12];
+
+			/*----------update bottom(2)----------*/
+			/*Left side*/
+			faces[2][4] = LastState[3][4];
+			faces[2][5] = LastState[3][5];
+			faces[2][6] = LastState[3][6];
+			faces[2][7] = LastState[3][7];
+			faces[2][8] = LastState[3][8];
+
+			/*Right side*/
+			faces[2][9] = LastState[1][9];
+			faces[2][10] = LastState[1][10];
+			faces[2][11] = LastState[1][11];
+			faces[2][12] = LastState[1][12];
+
+			copyStates();
 		}
 		/*right coloum stationary and moving down */
 		else if (col == 2 && direction == 0) {
