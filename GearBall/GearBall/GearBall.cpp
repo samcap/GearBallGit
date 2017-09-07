@@ -2,8 +2,7 @@
 #include "GearBall.h"
 
 using namespace std;
-GearBall::GearBall()
-{
+GearBall::GearBall(){
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 13; j++) {
 			if (i == 0) {
@@ -24,22 +23,21 @@ GearBall::GearBall()
 			else {
 				faces[i][j] = 'G';
 			}
-			
+
 		}
 	}
 	copyStates();
 }
 
 
-GearBall::~GearBall()
-{
+GearBall::~GearBall(){
 }
 void GearBall::rotate(int col, int direction, int turn) {
-	
+
 	for(int i = 0; i < turn; i++){
 
-		/*Center coloum stationary and moving down 
-		Faces 0,1,2,3 are effected and spots 0 1 2 3 
+		/*Center coloum stationary and moving down
+		Faces 0,1,2,3 are effected and spots 0 1 2 3
 		are changed from bottom and spots 9 10 11 12 are
 		changed from top*/
 		if (col == 0 && direction == 0) {
@@ -98,9 +96,9 @@ void GearBall::rotate(int col, int direction, int turn) {
 			copyStates();
 		}
 		/*Center coloum stationary and moving up
-		Faces 0 1 2 3 are are effected and spots 0 1 2 3 
+		Faces 0 1 2 3 are are effected and spots 0 1 2 3
 		are changed from top and spots 9 10 11 12 are
-		changed from bottom*/ 
+		changed from bottom*/
 		else if (col == 0 && direction == 1) {
 			/*--------update face(0)------------*/
 			/*Left side*/
@@ -157,7 +155,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			copyStates();
 		}
 		/*Center coloum stationary and moving left, Faces 0 4 5 3 are effected
-		The top slice 1 4 5 9 are changed with left face and spots 3 7 11 8 are 
+		The top slice 1 4 5 9 are changed with left face and spots 3 7 11 8 are
 		switched with the right face*/
 		else if (col == 0 && direction == 2) {
 			/*--------update face(0)------------*/
@@ -215,7 +213,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			copyStates();
 		}
 		/*Center coloum stationary and moving right Faces 0 4 5 3 are effected
-		The top slice 1 4 5 9 are changed with right face and spots 3 7 11 8 are 
+		The top slice 1 4 5 9 are changed with right face and spots 3 7 11 8 are
 		switched with the left face*/
 		else if (col == 0 && direction == 3) {
 			/*--------update face(0)------------*/
@@ -273,7 +271,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			copyStates();
 		}
 		/*left coloum stationary and moving down Faces 0,1,2,3
-		are effected and spots 4 5 6 7 8 are replaced with top 
+		are effected and spots 4 5 6 7 8 are replaced with top
 		face and 9 10 11 12 are replaced with back face */
 		else if (col == 1 && direction == 0) {
 			/*--------update face(0)------------*/
@@ -335,7 +333,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			copyStates();
 		}
 		/*left coloum stationary and moving up Faces 0,1,2,3
-		are effected and spots 4 5 6 7 8 are replaced with bottom 
+		are effected and spots 4 5 6 7 8 are replaced with bottom
 		face and 9 10 11 12 are replaced with back face */
 		else if (col == 1 && direction == 1) {
 			/*--------update face(0)------------*/
@@ -396,7 +394,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 
 			copyStates();
 		}
-		/*right coloum stationary and moving down Faces 0 1 2 3 are 
+		/*right coloum stationary and moving down Faces 0 1 2 3 are
 		effected and spots 4 5 6 7 8 are replaced with top face and spots
 		0 1 2 3 are replaced with back face Faces 0 1 2 3 are */
 		else if (col == 2 && direction == 0) {
@@ -456,7 +454,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][2] = LastState[1][2];
 			faces[2][3] = LastState[1][3];
 		}
-		/*right coloum stationary and moving up Faces 0 1 2 3 are 
+		/*right coloum stationary and moving up Faces 0 1 2 3 are
 		effected and spots 4 5 6 7 8 are replaced with Bottom face and spots
 		0 1 2 3 are replaced with back face*/
 		else if (col == 2 && direction == 0) {
@@ -775,11 +773,14 @@ void GearBall::rotate(int col, int direction, int turn) {
 
 	}
 
-	
+
 
 }
 void GearBall::randomize(int turns) {
 
+}
+void GearBall::sideRotate(int direction){
+	
 }
 void GearBall::copyStates() {
 	for (int i = 0; i < 6; i++) {
