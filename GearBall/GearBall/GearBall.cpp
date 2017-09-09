@@ -149,10 +149,10 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][3] = LastState[0][3];
 
 			/*Right side*/
-			faces[2][9] = LastState[3][9];
-			faces[2][10] = LastState[3][10];
-			faces[2][11] = LastState[3][11];
-			faces[2][12] = LastState[3][12];
+			faces[2][9] = LastState[3][3];
+			faces[2][10] = LastState[3][2];
+			faces[2][11] = LastState[3][1];
+			faces[2][12] = LastState[3][0];
 
 			copyStates();
 			sideRotate(1);
@@ -288,18 +288,18 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[0][8] = LastState[1][8];
 
 			/*Right side*/
-			faces[0][9] = LastState[3][9];
-			faces[0][10] = LastState[3][10];
-			faces[0][11] = LastState[3][11];
-			faces[0][12] = LastState[3][12];
+			faces[0][9] = LastState[3][3];
+			faces[0][10] = LastState[3][2];
+			faces[0][11] = LastState[3][1];
+			faces[0][12] = LastState[3][0];
 
 			/*----------update top(1)----------*/
 			/*Center side*/
-			faces[1][4] = LastState[3][4];
-			faces[1][5] = LastState[3][5];
+			faces[1][4] = LastState[3][8];
+			faces[1][5] = LastState[3][7];
 			faces[1][6] = LastState[3][6];
-			faces[1][7] = LastState[3][7];
-			faces[1][8] = LastState[3][8];
+			faces[1][7] = LastState[3][5];
+			faces[1][8] = LastState[3][4];
 
 			/*Right side*/
 			faces[1][9] = LastState[2][9];
@@ -309,17 +309,17 @@ void GearBall::rotate(int col, int direction, int turn) {
 
 			/*----------update back(3)----------*/
 			/*Middle side*/
-			faces[3][4] = LastState[2][4];
-			faces[3][5] = LastState[2][5];
+			faces[3][4] = LastState[2][8];
+			faces[3][5] = LastState[2][7];
 			faces[3][6] = LastState[2][6];
-			faces[3][7] = LastState[2][7];
-			faces[3][8] = LastState[2][8];
+			faces[3][7] = LastState[2][5];
+			faces[3][8] = LastState[2][4];
 
 			/*left side*/
-			faces[3][0] = LastState[0][0];
-			faces[3][1] = LastState[0][1];
-			faces[3][2] = LastState[0][2];
-			faces[3][3] = LastState[0][3];
+			faces[3][0] = LastState[0][12];
+			faces[3][1] = LastState[0][11];
+			faces[3][2] = LastState[0][10];
+			faces[3][3] = LastState[0][9];
 
 			/*----------update bottom(2)----------*/
 			/*Left side*/
@@ -351,10 +351,10 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[0][8] = LastState[2][8];
 
 			/*Right side*/
-			faces[0][9] = LastState[3][9];
-			faces[0][10] = LastState[3][10];
-			faces[0][11] = LastState[3][11];
-			faces[0][12] = LastState[3][12];
+			faces[0][9] = LastState[3][3];
+			faces[0][10] = LastState[3][2];
+			faces[0][11] = LastState[3][1];
+			faces[0][12] = LastState[3][0];
 
 			/*----------update top(1)----------*/
 			/*Center side*/
@@ -372,25 +372,25 @@ void GearBall::rotate(int col, int direction, int turn) {
 
 			/*----------update back(3)----------*/
 			/*Center side*/
-			faces[3][4] = LastState[1][4];
-			faces[3][5] = LastState[1][5];
+			faces[3][4] = LastState[1][8];
+			faces[3][5] = LastState[1][7];
 			faces[3][6] = LastState[1][6];
-			faces[3][7] = LastState[1][7];
-			faces[3][8] = LastState[1][8];
+			faces[3][7] = LastState[1][5];
+			faces[3][8] = LastState[1][4];
 
-			/*Right side*/
-			faces[3][9] = LastState[0][9];
-			faces[3][10] = LastState[0][10];
-			faces[3][11] = LastState[0][11];
-			faces[3][12] = LastState[0][12];
+			/*Left side*/
+			faces[3][0] = LastState[0][12];
+			faces[3][1] = LastState[0][11];
+			faces[3][2] = LastState[0][10];
+			faces[3][3] = LastState[0][9];
 
 			/*----------update bottom(2)----------*/
 			/*Center side*/
-			faces[2][4] = LastState[3][4];
-			faces[2][5] = LastState[3][5];
+			faces[2][4] = LastState[3][8];
+			faces[2][5] = LastState[3][7];
 			faces[2][6] = LastState[3][6];
-			faces[2][7] = LastState[3][7];
-			faces[2][8] = LastState[3][8];
+			faces[2][7] = LastState[3][5];
+			faces[2][8] = LastState[3][4];
 
 			/*Right side*/
 			faces[2][9] = LastState[1][9];
@@ -414,18 +414,18 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[0][8] = LastState[1][8];
 
 			/*Left side*/
-			faces[0][0] = LastState[3][0];
-			faces[0][1] = LastState[3][1];
-			faces[0][2] = LastState[3][2];
-			faces[0][3] = LastState[3][3];
+			faces[0][0] = LastState[3][12];
+			faces[0][1] = LastState[3][11];
+			faces[0][2] = LastState[3][10];
+			faces[0][3] = LastState[3][9];
 
 			/*----------update top(1)----------*/
 			/*center side*/
-			faces[1][4] = LastState[3][4];
-			faces[1][5] = LastState[3][5];
+			faces[1][4] = LastState[3][8];
+			faces[1][5] = LastState[3][7];
 			faces[1][6] = LastState[3][6];
-			faces[1][7] = LastState[3][7];
-			faces[1][8] = LastState[3][8];
+			faces[1][7] = LastState[3][5];
+			faces[1][8] = LastState[3][4];
 
 			/*Left side*/
 			faces[1][0] = LastState[2][0];
@@ -435,17 +435,17 @@ void GearBall::rotate(int col, int direction, int turn) {
 
 			/*----------update Back(3)----------*/
 			/*center side*/
-			faces[3][4] = LastState[2][4];
-			faces[3][5] = LastState[2][5];
+			faces[3][4] = LastState[2][8];
+			faces[3][5] = LastState[2][7];
 			faces[3][6] = LastState[2][6];
-			faces[3][7] = LastState[2][7];
-			faces[3][8] = LastState[2][8];
+			faces[3][7] = LastState[2][5];
+			faces[3][8] = LastState[2][4];
 
-			/*Left side*/
-			faces[3][0] = LastState[0][0];
-			faces[3][1] = LastState[0][1];
-			faces[3][2] = LastState[0][2];
-			faces[3][3] = LastState[0][3];
+			/*right side*/
+			faces[3][9] = LastState[0][3];
+			faces[3][10] = LastState[0][2];
+			faces[3][11] = LastState[0][1];
+			faces[3][12] = LastState[0][0];
 
 			/*----------update Bottom(2)----------*/
 			/*center side*/
@@ -467,7 +467,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 		/*right coloum stationary and moving up Faces 0 1 2 3 are
 		effected and spots 4 5 6 7 8 are replaced with Bottom face and spots
 		0 1 2 3 are replaced with back face*/
-		else if (col == 2 && direction == 0) {
+		else if (col == 2 && direction == 1) {
 			/*----------update front(0)----------*/
 			/*center side*/
 			faces[0][4] = LastState[2][4];
@@ -477,10 +477,10 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[0][8] = LastState[2][8];
 
 			/*Left side*/
-			faces[0][0] = LastState[3][0];
-			faces[0][1] = LastState[3][1];
-			faces[0][2] = LastState[3][2];
-			faces[0][3] = LastState[3][3];
+			faces[0][0] = LastState[3][12];
+			faces[0][1] = LastState[3][11];
+			faces[0][2] = LastState[3][10];
+			faces[0][3] = LastState[3][9];
 
 			/*----------update top(1)----------*/
 			/*center side*/
@@ -498,25 +498,25 @@ void GearBall::rotate(int col, int direction, int turn) {
 
 			/*----------update Back(3)----------*/
 			/*center side*/
-			faces[3][4] = LastState[1][4];
-			faces[3][5] = LastState[1][5];
+			faces[3][4] = LastState[1][8];
+			faces[3][5] = LastState[1][7];
 			faces[3][6] = LastState[1][6];
-			faces[3][7] = LastState[1][7];
-			faces[3][8] = LastState[1][8];
+			faces[3][7] = LastState[1][5];
+			faces[3][8] = LastState[1][4];
 
 			/*Left side*/
-			faces[3][0] = LastState[0][0];
-			faces[3][1] = LastState[0][1];
-			faces[3][2] = LastState[0][2];
-			faces[3][3] = LastState[0][3];
+			faces[3][9] = LastState[0][3];
+			faces[3][10] = LastState[0][2];
+			faces[3][11] = LastState[0][1];
+			faces[3][12] = LastState[0][0];
 
 			/*----------update Bottom(2)----------*/
 			/*center side*/
-			faces[2][4] = LastState[3][4];
-			faces[2][5] = LastState[3][5];
+			faces[2][4] = LastState[3][8];
+			faces[2][5] = LastState[3][7];
 			faces[2][6] = LastState[3][6];
-			faces[2][7] = LastState[3][7];
-			faces[2][8] = LastState[3][8];
+			faces[2][7] = LastState[3][5];
+			faces[2][8] = LastState[3][4];
 
 			/*Left side*/
 			faces[2][0] = LastState[1][0];
@@ -530,7 +530,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 		/*top row stationary and moving left faces 0 3 4 5 are effected
 		and spots 0 2 6 10 12 are replaced with the right face and spots
 		3 7 11 8 are replaced with the back face*/
-		else if (col == 3 && direction == 2) {
+		else if (col == 3 && direction == 0) {
 			/*----------update Front(0)----------*/
 			/*Center*/
 			faces[0][0] = LastState[5][0];
@@ -593,7 +593,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 		/*top row stationary and moving right faces 0 3 4 5 are effected
 		and spots 0 2 6 10 12 are replaced with the left face and spots
 		3 7 11 8 are replaced with the back face*/
-		else if (col == 3 && direction == 3) {
+		else if (col == 3 && direction == 1) {
 			/*----------update Front(0)----------*/
 			/*Center*/
 			faces[0][0] = LastState[4][0];
@@ -656,7 +656,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 		/*bottom row stationary and moving left, faces 0 3 4 5 are effected
 		abd soits 0 2 6 10 12 are replaced wutg the right face and spots
 		1 4 5 9 are replaced with the back face*/
-		else if (col == 4 && direction == 2) {
+		else if (col == 4 && direction == 0) {
 			/*----------update Front(0)----------*/
 			/*Center*/
 			faces[0][0] = LastState[5][0];
@@ -719,7 +719,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 		/*bottom row stationary and moving right faces 0 3 4 5 are effected
 		abd soits 0 2 6 10 12 are replaced wutg the left face and spots
 		1 4 5 9 are replaced with the back face*/
-		else if (col == 4 && direction == 3) {
+		else if (col == 4 && direction == 1) {
 			/*----------update Front(0)----------*/
 			/*Center*/
 			faces[0][0] = LastState[4][0];
@@ -843,18 +843,18 @@ void GearBall::sideRotate(int rot){
 		faces[4][11] = LastState[4][3];
 		faces[4][12] = LastState[4][8];
 
-		faces[5][0] = LastState[5][4];
-		faces[5][1] = LastState[5][9];
-		faces[5][2] = LastState[5][5];
-		faces[5][3] = LastState[5][1];
-		faces[5][4] = LastState[5][12];
-		faces[5][5] = LastState[5][10];
-		faces[5][7] = LastState[5][2];
-		faces[5][8] = LastState[5][0];
-		faces[5][9] = LastState[5][11];
-		faces[5][10] = LastState[5][7];
-		faces[5][11] = LastState[5][3];
-		faces[5][12] = LastState[5][8];
+		faces[5][0] = LastState[5][8];
+		faces[5][1] = LastState[5][3];
+		faces[5][2] = LastState[5][7];
+		faces[5][3] = LastState[5][11];
+		faces[5][4] = LastState[5][0];
+		faces[5][5] = LastState[5][2];
+		faces[5][7] = LastState[5][10];
+		faces[5][8] = LastState[5][12];
+		faces[5][9] = LastState[5][1]; 
+		faces[5][10] = LastState[5][5];
+		faces[5][11] = LastState[5][9];
+		faces[5][12] = LastState[5][4];
 
 		copyStates();
 	}
@@ -889,6 +889,8 @@ void GearBall::sideRotate(int rot){
 		faces[4][10] = LastState[4][2];
 		faces[4][11] = LastState[4][1];
 		faces[4][12] = LastState[4][0];
+
+		copyStates();
 	}
 	/*rotate left update faces 1 and 2*/
 	else if (rot == 4) {
