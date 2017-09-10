@@ -1,8 +1,10 @@
 #ifndef	GEARBALL_H
 #define GEARBALL_H
 #include <string>
+#include "Gear.h"
+using namespace std;
 
-class GearBall
+class GearBall 
 {
 public:
 	GearBall();
@@ -12,13 +14,14 @@ public:
 	void randomize(int turns);
 	void sideRotate(int rot);
 	void copyStates();
-	void gearFormat(); 
+	void setGears();
+	
 
 
 private:
-	std::string faces[6][13];
-	std::string LastState[6][13];
-	std::string printFaces[6][13];
+	Gear faces[6][13];
+	Gear LastState[6][13];
+	Gear printFaces[6][13];
 	int vertTurn;
 	int horizTurn;
 };

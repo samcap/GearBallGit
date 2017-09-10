@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "GearBall.h"
+#include "Gear.h"
 
 
 using namespace std;
@@ -10,112 +11,123 @@ GearBall::GearBall(){
 			//store O at spot zero and keep track of gear pairings
 			if (i == 0) {
 				if (j == 0){
-					faces[i][j] = "O/B";
+					faces[i][0].setStates("O","O/B","B/O","B","B/O","O/B");
+					faces[i][0].setForward(horizTurn);
 				}
 				else if (j == 4) {
-					faces[i][j] = "O/R";
+					faces[i][4].setStates("O", "O/R", "R/O", "R", "R/O", "O/R");
+					faces[i][4].setForward(vertTurn);
 				}
 				else if (j == 8) {
-					faces[i][j] = "O/P";
+					faces[i][8].setStates("O", "O/P", "P/O", "P", "P/O", "O/P");
+					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][j] = "O/G";
+					faces[i][12].setStates("O", "O/G", "B/O", "G", "G/O", "O/G");
+					faces[i][12].setForward(horizTurn);
 				}
-				else {
-					faces[i][j] = "O";
-				}
+				faces[i][j].setColor("O");
 
 			}
 			//store R at spot 1 and keep track of gear pairings
 			else if (i == 1) {
 				if (j == 0) {
-					faces[i][j] = "R/B";
+					faces[i][0].setStates("R", "R/B", "B/R", "B", "B/R", "R/B");
+					faces[i][0].setForward(horizTurn);
 				}
 				else if (j == 4) {
-					faces[i][j] = "R/Y";
+					faces[i][4].setStates("R", "R/Y", "Y/R", "Y", "Y/R", "R/Y");
+					faces[i][4].setForward(vertTurn);
 				}
 				else if (j == 8) {
-					faces[i][j] = "R/O";
+					faces[i][8].setStates("R", "R/O", "O/R", "O", "O/R", "R/O");
+					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][j] = "R/G";
+					faces[i][12].setStates("R", "R/G", "G/R", "G", "G/R", "R/G");
+					faces[i][12].setForward(horizTurn);
 				}
-				else {
-					faces[i][j] = "R";
-				}
+				faces[i][j].setColor("R");
 			}
 			//store P at spot 2 and keep track of gear pairings
 			else if (i == 2) {
 				if (j == 0) {
-					faces[i][j] = "P/B";
+					faces[i][0].setStates("P", "P/B", "B/P", "B", "B/P", "P/B");
+					faces[i][0].setForward(horizTurn);
 				}
 				else if (j == 4) {
-					faces[i][j] = "P/O";
+					faces[i][4].setStates("P", "P/O", "O/P", "O", "O/P", "P/O");
+					faces[i][4].setForward(vertTurn);
 				}
 				else if (j == 8) {
-					faces[i][j] = "P/Y";
+					faces[i][8].setStates("P", "P/Y", "Y/P", "Y", "Y/P", "P/Y");
+					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][j] = "P/G";
+					faces[i][12].setStates("P", "P/G", "G/P", "G", "G/P", "P/G");
+					faces[i][12].setForward(horizTurn);
 				}
-				else {
-					faces[i][j] = "P";
-				}
+				faces[i][j].setColor("P");
 			}
 			//store Y at spot 3 and keep track of gear pairings
 			else if (i == 3) {
 				if (j == 0) {
-					faces[i][j] = "Y/G";
+					faces[i][0].setStates("Y", "Y/G", "G/Y", "G", "G/Y", "Y/G");
+					faces[i][0].setForward(horizTurn);
 				}
 				else if (j == 4) {
-					faces[i][j] = "Y/R";
+					faces[i][4].setStates("Y", "Y/R", "R/Y", "R", "R/Y", "Y/R");
+					faces[i][4].setForward(vertTurn);
 				}
 				else if (j == 8) {
-					faces[i][j] = "Y/P";
+					faces[i][8].setStates("Y", "Y/P", "P/Y", "P", "P/Y", "Y/P");
+					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][j] = "Y/B";
+					faces[i][12].setStates("Y", "Y/B", "B/Y", "B", "B/Y", "Y/B");
+					faces[i][12].setForward(horizTurn);
 				}
-				else {
-					faces[i][j] = "Y";
-				}
+				faces[i][j].setColor("Y");
 			}
 			//store B at spot 4 and keep track of gear pairings
 			else if (i == 4) {
 				if (j == 0) {
-					faces[i][j] = "B/Y";
+					faces[i][0].setStates("B", "B/Y", "Y/B", "Y", "Y/B", "B/Y");
+					faces[i][0].setForward(horizTurn);
 				}
 				else if (j == 4) {
-					faces[i][j] = "B/R";
+					faces[i][4].setStates("B", "B/R", "R/B", "R", "R/B", "B/R");
+					faces[i][4].setForward(vertTurn);
 				}
 				else if (j == 8) {
-					faces[i][j] = "B/P";
+					faces[i][8].setStates("B", "B/P", "P/B", "P", "P/B", "B/P");
+					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][j] = "B/O";
+					faces[i][12].setStates("B", "B/O", "O/B", "O", "O/B", "B/O");
+					faces[i][12].setForward(horizTurn);
 				}
-				else {
-					faces[i][j] = "B";
-				}
-
+				faces[i][j].setColor("B");
 			}
 			//store G at spot 5 and keep track of gear pairings
 			else {
 				if (j == 0) {
-					faces[i][j] = "G/O";
+					faces[i][0].setStates("G", "G/O", "O/G", "O", "O/G", "G/O");
+					faces[i][0].setForward(horizTurn);
 				}
 				else if (j == 4) {
-					faces[i][j] = "G/R";
+					faces[i][4].setStates("G", "G/R", "R/G", "R", "R/G", "G/R");
+					faces[i][4].setForward(vertTurn);
 				}
 				else if (j == 8) {
-					faces[i][j] = "G/P";
+					faces[i][8].setStates("G", "G/P", "P/G", "P", "P/G", "G/P");
+					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][j] = "G/Y";
+					faces[i][12].setStates("G", "G/Y", "Y/G", "Y", "Y/G", "G/Y");
+					faces[i][12].setForward(horizTurn);
 				}
-				else {
-					faces[i][j] = "G";
-				}
+				faces[i][j].setColor("G");
 			}
 
 		}
@@ -129,7 +141,6 @@ GearBall::GearBall(){
 GearBall::~GearBall(){
 }
 void GearBall::rotate(int col, int direction, int turn) {
-
 	for(int i = 0; i < turn; i++){
 
 		/*Center coloum stationary and moving down
@@ -888,8 +899,14 @@ void GearBall::rotate(int col, int direction, int turn) {
 			horizTurn--;
 		}
 
-	}
+		if (vertTurn == 6 || vertTurn == -6) {
+			vertTurn = 0;
+		}
+		if (horizTurn == 6 || horizTurn == -6) {
+			horizTurn = 0;
+		}
 
+	}
 
 
 }
@@ -1097,191 +1114,87 @@ void GearBall::copyStates() {
 			LastState[i][j] = faces[i][j];
 		}
 	}
+
 }
-void GearBall::gearFormat() {
+void GearBall::setGears() {
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 13; j++) {
-			printFaces[i][j] = faces[i][j];
-		}
-	}
-
-	if (vertTurn == 0) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][4] = faces[i][4][0];
-			printFaces[i][8] = faces[i][8][0];
-		}
-	}
-	else if (vertTurn == 1) {
-		for (int i = 0; i < 6; i++) {
-			if (i != 4 && i != 5) {
-				printFaces[i][4] = faces[i][4];
-				printFaces[i][8] = faces[i][8];
+			if (i != 1) {
+				if (i != 2) {
+					if (j == 0 || j == 12) {
+						faces[i][j].setForward(horizTurn);
+						faces[i][j].setColor(faces[i][j].getForward());
+					}
+				}
+			}
+			if (i != 4) {
+				if (i != 5) {
+					if (j == 4 || j == 8) {
+						faces[i][j].setForward(vertTurn);
+						faces[i][j].setColor(faces[i][j].getForward());
+					}
+				}
 			}
 		}
 	}
-	else if (vertTurn == 2) {
-
-	}
-	else if (vertTurn == 3) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][4] = faces[i][4][2];
-			printFaces[i][8] = faces[i][8][2];
-		}
-	}
-	else if (vertTurn == 4) {
-
-	}
-	else if (vertTurn == 5) {
-
-	}
-	else if (vertTurn == 6) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][4] = faces[i][4][0];
-			printFaces[i][8] = faces[i][8][0];
-		}
-		vertTurn = 0;
-	}
-	else if (vertTurn == -1) {
-
-	}
-	else if (vertTurn == -2) {
-
-	}
-	else if (vertTurn == -3) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][4] = faces[i][4][2];
-			printFaces[i][8] = faces[i][8][2];
-		}
-	}
-	else if (vertTurn == -4) {
-
-	}
-	else if (vertTurn == -5) {
-
-	}
-	else if (vertTurn == -6) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][4] = faces[i][4][0];
-			printFaces[i][8] = faces[i][8][0];
-		}
-		vertTurn = 0;
-	}
-
-	if (horizTurn == 0) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][0] = faces[i][0][0];
-			printFaces[i][12] = faces[i][12][0];
-		}
-	}
-	else if (horizTurn == 1) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][0] = faces[i][0];
-			printFaces[i][12] = faces[i][12];
-		}
-	}
-	else if (horizTurn == 2) {
-
-	}
-	else if (horizTurn == 3) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][0] = faces[i][0][2];
-			printFaces[i][12] = faces[i][12][2];
-		}
-	}
-	else if (horizTurn == 4) {
-
-	}
-	else if (horizTurn == 5) {
-
-	}
-	else if (horizTurn == 6) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][0] = faces[i][0][0];
-			printFaces[i][12] = faces[i][12][0];
-		}
-		horizTurn = 0;
-	}
-	else if (horizTurn == -1) {
-
-	}
-	else if (horizTurn == -2) {
-
-	}
-	else if (horizTurn == -3) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][0] = faces[i][0][2];
-			printFaces[i][12] = faces[i][12][2];
-		}
-	}
-	else if (horizTurn == -4) {
-
-	}
-	else if (horizTurn == -5) {
-
-	}
-	else if (horizTurn == -6) {
-		for (int i = 0; i < 6; i++) {
-			printFaces[i][0] = faces[i][0][0];
-			printFaces[i][12] = faces[i][12][0];
-		}
-		horizTurn = 0;
-	}
+	copyStates();
 }
+
 void GearBall::printBall() {
-	gearFormat();
+	setGears();
 	for (int i = 0; i <= 5; i++) {
 		if (i == 0) {
 			cout << "++++++++--FACE--+++++++" << endl;
-			cout << "--" << printFaces[i][4] << "--" << endl;
-			cout << "-" << printFaces[i][1] << printFaces[i][5] << printFaces[i][9] << "-" << endl;
-			cout << printFaces[i][0] << printFaces[i][2] << printFaces[i][6] << printFaces[i][10] << printFaces[i][12] << endl;
-			cout << "-" << printFaces[i][3] << printFaces[i][7] << printFaces[i][11] << "-" << endl;
-			cout << "--" << printFaces[i][8] << "--" << endl;
+			cout << "--" << faces[i][4].getColor() << "--" << endl;
+			cout << "-" << faces[i][1].getColor() << faces[i][5].getColor() << faces[i][9].getColor() << "-" << endl;
+			cout << faces[i][0].getColor() << faces[i][2].getColor() << faces[i][6].getColor() << faces[i][10].getColor() << faces[i][12].getColor() << endl;
+			cout << "-" << faces[i][3].getColor() << faces[i][7].getColor() << faces[i][11].getColor() << "-" << endl;
+			cout << "--" << faces[i][8].getColor() << "--" << endl;
 			cout << "+++++++++++++++++++++++++" << endl;
 		}
 		else if (i == 1) {
 			cout << "+++++++++--TOP--+++++++++" << endl;
-			cout << "--" << printFaces[i][4] << "--" << endl;
-			cout << "-" << printFaces[i][1] << printFaces[i][5] << printFaces[i][9] << "-" << endl;
-			cout << printFaces[i][0] << printFaces[i][2] << printFaces[i][6] << printFaces[i][10] << printFaces[i][12] << endl;
-			cout << "-" << printFaces[i][3] << printFaces[i][7] << printFaces[i][11] << "-" << endl;
-			cout << "--" << printFaces[i][8] << "--" << endl;
+			cout << "--" << faces[i][4].getColor() << "--" << endl;
+			cout << "-" << faces[i][1].getColor() << faces[i][5].getColor() << faces[i][9].getColor() << "-" << endl;
+			cout << faces[i][0].getColor() << faces[i][2].getColor() << faces[i][6].getColor() << faces[i][10].getColor() << faces[i][12].getColor() << endl;
+			cout << "-" << faces[i][3].getColor() << faces[i][7].getColor() << faces[i][11].getColor() << "-" << endl;
+			cout << "--" << faces[i][8].getColor() << "--" << endl;
 			cout << "+++++++++++++++++++++++++" << endl;
 		}
 		else if (i == 2) {
 			cout << "++++++++--BOTTOM--+++++++" << endl;
-			cout << "--" << printFaces[i][4] << "--" << endl;
-			cout << "-" << printFaces[i][1] << printFaces[i][5] << printFaces[i][9] << "-" << endl;
-			cout << printFaces[i][0] << printFaces[i][2] << printFaces[i][6] << printFaces[i][10] << printFaces[i][12] << endl;
-			cout << "-" << printFaces[i][3] << printFaces[i][7] << printFaces[i][11] << "-" << endl;
-			cout << "--" << printFaces[i][8] << "--" << endl;
+			cout << "--" << faces[i][4].getColor() << "--" << endl;
+			cout << "-" << faces[i][1].getColor() << faces[i][5].getColor() << faces[i][9].getColor() << "-" << endl;
+			cout << faces[i][0].getColor() << faces[i][2].getColor() << faces[i][6].getColor() << faces[i][10].getColor() << faces[i][12].getColor() << endl;
+			cout << "-" << faces[i][3].getColor() << faces[i][7].getColor() << faces[i][11].getColor() << "-" << endl;
+			cout << "--" << faces[i][8].getColor() << "--" << endl;
 			cout << "++++++++++++++++++++++++++" << endl;
 		}
 		else if (i == 3) {
 			cout << "++++++++--BACK--++++++++++" << endl;
-			cout << "--" << printFaces[i][4] << "--" << endl;
-			cout << "-" << printFaces[i][1] << printFaces[i][5] << printFaces[i][9] << "-" << endl;
-			cout << printFaces[i][0] << printFaces[i][2] << printFaces[i][6] << printFaces[i][10] << printFaces[i][12] << endl;
-			cout << "-" << printFaces[i][3] << printFaces[i][7] << printFaces[i][11] << "-" << endl;
-			cout << "--" << printFaces[i][8] << "--" << endl;
+			cout << "--" << faces[i][4].getColor() << "--" << endl;
+			cout << "-" << faces[i][1].getColor() << faces[i][5].getColor() << faces[i][9].getColor() << "-" << endl;
+			cout << faces[i][0].getColor() << faces[i][2].getColor() << faces[i][6].getColor() << faces[i][10].getColor() << faces[i][12].getColor() << endl;
+			cout << "-" << faces[i][3].getColor() << faces[i][7].getColor() << faces[i][11].getColor() << "-" << endl;
+			cout << "--" << faces[i][8].getColor() << "--" << endl;
 			cout << "+++++++++++++++++++++++++++" << endl;
 		}
 		else if (i == 4) {
 			cout << "++++++++--LEFT--+++++++++++" << endl;
-			cout << "--" << printFaces[i][4] << "--" << endl;
-			cout << "-" << printFaces[i][1] << printFaces[i][5] << printFaces[i][9] << "-" << endl;
-			cout << printFaces[i][0] << printFaces[i][2] << printFaces[i][6] << printFaces[i][10] << printFaces[i][12] << endl;
-			cout << "-" << printFaces[i][3] << printFaces[i][7] << printFaces[i][11] << "-" << endl;
-			cout << "--" << printFaces[i][8] << "--" << endl;
+			cout << "--" << faces[i][4].getColor() << "--" << endl;
+			cout << "-" << faces[i][1].getColor() << faces[i][5].getColor() << faces[i][9].getColor() << "-" << endl;
+			cout << faces[i][0].getColor() << faces[i][2].getColor() << faces[i][6].getColor() << faces[i][10].getColor() << faces[i][12].getColor() << endl;
+			cout << "-" << faces[i][3].getColor() << faces[i][7].getColor() << faces[i][11].getColor() << "-" << endl;
+			cout << "--" << faces[i][8].getColor() << "--" << endl;
 			cout << "++++++++++++++++++++++++++++" << endl;
 		}
 		else if (i == 5) {
 			cout << "+++++++++--RIGHT--+++++++++" << endl;
-			cout << "--" << printFaces[i][4] << "--" << endl;
-			cout << "-" << printFaces[i][1] << printFaces[i][5] << printFaces[i][9] << "-" << endl;
-			cout << printFaces[i][0] << printFaces[i][2] << printFaces[i][6] << printFaces[i][10] << printFaces[i][12] << endl;
-			cout << "-" << printFaces[i][3] << printFaces[i][7] << printFaces[i][11] << "-" << endl;
-			cout << "--" << printFaces[i][8] << "--" << endl;
+			cout << "--" << faces[i][4].getColor() << "--" << endl;
+			cout << "-" << faces[i][1].getColor() << faces[i][5].getColor() << faces[i][9].getColor() << "-" << endl;
+			cout << faces[i][0].getColor() << faces[i][2].getColor() << faces[i][6].getColor() << faces[i][10].getColor() << faces[i][12].getColor() << endl;
+			cout << "-" << faces[i][3].getColor() << faces[i][7].getColor() << faces[i][11].getColor() << "-" << endl;
+			cout << "--" << faces[i][8].getColor() << "--" << endl;
 			cout << "+++++++++++++++++++++++++++" << endl;
 		}
 	}
