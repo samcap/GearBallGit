@@ -1,5 +1,6 @@
 #ifndef	GEARBALL_H
 #define GEARBALL_H
+#include <string>
 
 class GearBall
 {
@@ -14,8 +15,10 @@ public:
 
 
 private:
-	char faces[6][13];
-	char LastState[6][13];
+	std::string faces[6][13];
+	std::string LastState[6][13];
+	int vertTurn;
+	int horizTurn;
 };
 
 #endif

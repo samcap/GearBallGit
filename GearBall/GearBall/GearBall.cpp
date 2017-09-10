@@ -1,32 +1,36 @@
 #include <iostream>
+#include <string>
 #include "GearBall.h"
+
 
 using namespace std;
 GearBall::GearBall(){
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 13; j++) {
 			if (i == 0) {
-				faces[i][j] = 'O';
+				faces[i][j] = "O";
 			}
 			else if (i == 1) {
-				faces[i][j] = 'R';
+				faces[i][j] = "R";
 			}
 			else if (i == 2) {
-				faces[i][j] = 'P';
+				faces[i][j] = "P";
 			}
 			else if (i == 3) {
-				faces[i][j] = 'Y';
+				faces[i][j] = "Y";
 			}
 			else if (i == 4) {
-				faces[i][j] = 'B';
+				faces[i][j] = "B";
 			}
 			else {
-				faces[i][j] = 'G';
+				faces[i][j] = "G";
 			}
 
 		}
 	}
 	copyStates();
+	vertTurn = 0;
+	horizTurn = 0;
 }
 
 
@@ -93,6 +97,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][11] = LastState[0][11];
 			faces[2][12] = LastState[0][12];
 
+			vertTurn++;
 			copyStates();
 			sideRotate(0);
 
@@ -779,12 +784,6 @@ void GearBall::rotate(int col, int direction, int turn) {
 			copyStates();
 			sideRotate(7);
 		}
-		else {
-
-		}
-
-
-
 
 	}
 
@@ -830,18 +829,18 @@ void GearBall::sideRotate(int rot){
 	/*If rotation was up rotate face 4 and 5*/
 	else if (rot == 1) {
 
-		faces[4][0] = LastState[4][4];
-		faces[4][1] = LastState[4][9];
-		faces[4][2] = LastState[4][5];
-		faces[4][3] = LastState[4][1];
-		faces[4][4] = LastState[4][12];
-		faces[4][5] = LastState[4][10];
-		faces[4][7] = LastState[4][2];
-		faces[4][8] = LastState[4][0];
-		faces[4][9] = LastState[4][11];
-		faces[4][10] = LastState[4][7];
-		faces[4][11] = LastState[4][3];
-		faces[4][12] = LastState[4][8];
+		faces[4][0] = LastState[4][8];
+		faces[4][1] = LastState[4][3];
+		faces[4][2] = LastState[4][7];
+		faces[4][3] = LastState[4][11];
+		faces[4][4] = LastState[4][0];
+		faces[4][5] = LastState[4][2];
+		faces[4][7] = LastState[4][10];
+		faces[4][8] = LastState[4][12];
+		faces[4][9] = LastState[4][1];
+		faces[4][10] = LastState[4][5];
+		faces[4][11] = LastState[4][9];
+		faces[4][12] = LastState[4][4];
 
 		faces[5][0] = LastState[5][8];
 		faces[5][1] = LastState[5][3];
@@ -997,14 +996,61 @@ void GearBall::copyStates() {
 	}
 }
 void GearBall::printBall() {
-	copyStates();
+	//copyStates();
 	for (int i = 0; i <= 5; i++) {
-		cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
-		cout << "--" << faces[i][4] << "--" << endl;
-		cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
-		cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
-		cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
-		cout << "--" << faces[i][8] << "--" << endl;
-		cout << "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+		if (i == 0) {
+			cout << "++++++++--FACE--+++++++" << endl;
+			cout << "--" << faces[i][4] << "--" << endl;
+			cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
+			cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
+			cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
+			cout << "--" << faces[i][8] << "--" << endl;
+			cout << "+++++++++++++++++++++++++" << endl;
+		}
+		else if (i == 1) {
+			cout << "+++++++++--TOP--+++++++++" << endl;
+			cout << "--" << faces[i][4] << "--" << endl;
+			cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
+			cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
+			cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
+			cout << "--" << faces[i][8] << "--" << endl;
+			cout << "+++++++++++++++++++++++++" << endl;
+		}
+		else if (i == 2) {
+			cout << "++++++++--BOTTOM--+++++++" << endl;
+			cout << "--" << faces[i][4] << "--" << endl;
+			cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
+			cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
+			cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
+			cout << "--" << faces[i][8] << "--" << endl;
+			cout << "++++++++++++++++++++++++++" << endl;
+		}
+		else if (i == 3) {
+			cout << "++++++++--BACK--++++++++++" << endl;
+			cout << "--" << faces[i][4] << "--" << endl;
+			cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
+			cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
+			cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
+			cout << "--" << faces[i][8] << "--" << endl;
+			cout << "+++++++++++++++++++++++++++" << endl;
+		}
+		else if (i == 3) {
+			cout << "++++++++--LEFT--+++++++++++" << endl;
+			cout << "--" << faces[i][4] << "--" << endl;
+			cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
+			cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
+			cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
+			cout << "--" << faces[i][8] << "--" << endl;
+			cout << "++++++++++++++++++++++++++++" << endl;
+		}
+		else if (i == 4) {
+			cout << "+++++++++--RIGHT--+++++++++" << endl;
+			cout << "--" << faces[i][4] << "--" << endl;
+			cout << "-" << faces[i][1] << faces[i][5] << faces[i][9] << "-" << endl;
+			cout << faces[i][0] << faces[i][2] << faces[i][6] << faces[i][10] << faces[i][12] << endl;
+			cout << "-" << faces[i][3] << faces[i][7] << faces[i][11] << "-" << endl;
+			cout << "--" << faces[i][8] << "--" << endl;
+			cout << "+++++++++++++++++++++++++++" << endl;
+		}
 	}
 }
