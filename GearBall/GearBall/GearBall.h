@@ -12,11 +12,13 @@ public:
 	void randomize(int turns);
 	void sideRotate(int rot);
 	void copyStates();
+	void gearFormat(); 
 
 
 private:
 	std::string faces[6][13];
 	std::string LastState[6][13];
+	std::string printFaces[6][13];
 	int vertTurn;
 	int horizTurn;
 };

@@ -8,8 +8,8 @@ using namespace std;
 int main() {
 	GearBall ball;
 	//ball.rotate(0, 0, 12); //down
-	//ball.rotate(0, 1, 12); //up
-	//ball.rotate(0, 2, 12); //left
+	ball.rotate(0, 1, 1); //up
+	ball.rotate(0, 2, 1); //left
 	//ball.rotate(0, 3, 12); //right
 	//ball.rotate(1, 0, 12); // left stationary down
 	//ball.rotate(1, 1, 12); // left stationary up
