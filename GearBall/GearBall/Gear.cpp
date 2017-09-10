@@ -6,8 +6,6 @@
 Gear::Gear()
 {
 }
-
-
 Gear::~Gear()
 {
 }
@@ -66,9 +64,6 @@ void Gear::setForward(int count) {
 		forward = states[0];
 	}
 }
-
-
-
 std::string Gear::getColor() {
 	return(color);
 }
