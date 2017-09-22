@@ -114,10 +114,12 @@
     <ClCompile Include="Gear.cpp" />
     <ClCompile Include="GearBall.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MoveState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gear.h" />
     <ClInclude Include="GearBall.h" />
+    <ClInclude Include="MoveState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,7 @@
 #include <ctime>
 #include "GearBall.h"
 #include "Gear.h"
-
+#include <queue>
 
 using namespace std;
 
@@ -26,7 +26,7 @@ GearBall::GearBall(){
 					faces[i][8].setForward(vertTurn);
 				}
 				else if (j == 12) {
-					faces[i][12].setStates("O", "O/G", "B/O", "G", "G/O", "O/G");
+					faces[i][12].setStates("O", "O/G", "G/O", "G", "G/O", "O/G");
 					faces[i][12].setForward(horizTurn);
 				}
 				faces[i][j].setColor("O");
@@ -143,9 +143,23 @@ GearBall::GearBall(){
 
 GearBall::~GearBall(){
 }
+int GearBall::FindOutOfPlace() {
+	int outOfPlace = 0;
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 13; j++) {
+			if (j != 6) {
+				if (faces[i][j].getColor() != faces[i][6].getColor()) {
+					outOfPlace++;
+				}
+			}
+		}
+	}
+	return outOfPlace;
+}
 void GearBall::rotate(int col, int direction, int turn) {
 	for(int i = 0; i < turn; i++){
-
+		pvertTurn = vertTurn;
+		phorizTurn = horizTurn;
 		/*Center coloum stationary and moving down
 		Faces 0,1,2,3 are effected and spots 0 1 2 3
 		are changed from bottom and spots 9 10 11 12 are
@@ -203,6 +217,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][11] = LastState[0][11];
 			faces[2][12] = LastState[0][12];
 	
+			previousState();
 			copyStates();
 			sideRotate(0);
 			vertTurn--;
@@ -265,6 +280,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][11] = LastState[3][1];
 			faces[2][12] = LastState[3][0];
 
+			previousState();
 			copyStates();
 			sideRotate(1);
 			vertTurn++;
@@ -325,6 +341,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[3][8] = LastState[5][8];
 			faces[3][11] = LastState[5][11];
 
+			previousState();
 			copyStates();
 			sideRotate(4);
 			horizTurn++;
@@ -385,6 +402,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[3][8] = LastState[4][8];
 			faces[3][11] = LastState[4][11];
 
+			previousState();
 			copyStates();
 			sideRotate(5);
 			horizTurn--;
@@ -449,6 +467,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][11] = LastState[1][11];
 			faces[2][12] = LastState[1][12];
 
+			previousState();
 			copyStates();
 			sideRotate(2);
 			vertTurn--;
@@ -513,6 +532,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][11] = LastState[1][11];
 			faces[2][12] = LastState[1][12];
 
+			previousState();
 			copyStates();
 			sideRotate(2);
 			vertTurn++;
@@ -577,6 +597,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][2] = LastState[1][2];
 			faces[2][3] = LastState[1][3];
 
+			previousState();
 			copyStates();
 			sideRotate(3);
 			vertTurn--;
@@ -641,6 +662,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[2][2] = LastState[1][2];
 			faces[2][3] = LastState[1][3];
 
+			previousState();
 			copyStates();
 			sideRotate(3);
 			vertTurn++;
@@ -705,6 +727,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[5][11] = LastState[4][11];
 			faces[5][8] = LastState[4][8];
 
+			previousState();
 			copyStates();
 			sideRotate(6);
 			horizTurn++;
@@ -769,6 +792,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[5][11] = LastState[4][11];
 			faces[5][8] = LastState[4][8];
 
+			previousState();
 			copyStates();
 			sideRotate(6);
 			horizTurn--;
@@ -833,6 +857,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[5][5] = LastState[4][5];
 			faces[5][9] = LastState[4][9];
 
+			previousState();
 			copyStates();
 			sideRotate(7);
 			horizTurn++;
@@ -897,6 +922,7 @@ void GearBall::rotate(int col, int direction, int turn) {
 			faces[5][5] = LastState[4][5];
 			faces[5][9] = LastState[4][9];
 
+			previousState();
 			copyStates();
 			sideRotate(7);
 			horizTurn--;
@@ -992,14 +1018,8 @@ void GearBall::randomize(int turns) {
 			counter += Num;
 			cout << "This move was preformed: "<< Move[0]<< "," << Move[1] << "," << Move[2] << endl;
 			rotate(Move[0], Move[1], Move[2]);
+
 		}
-		
-
-		
-		
-		
-		
-
 		
 	}
 }
@@ -1206,6 +1226,20 @@ void GearBall::copyStates() {
 	}
 
 }
+void GearBall::previousState() {
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 13; j++) {
+			hState[i][j] = LastState[i][j];
+		}
+	}
+}
+void GearBall::reset() {
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 13; j++) {
+			faces[i][j] = hState[i][j];
+		}
+	}
+}
 void GearBall::setGears() {
 	//For every edge piece correctly orient them
 	for (int i = 0; i < 6; i++) {
@@ -1290,5 +1324,108 @@ void GearBall::printBall() {
 			cout << "-------" << faces[i][8].getColor() << "----------------" << endl;
 			cout << "++++++++++++++++++++++++" << endl;
 		}
+		//cout << "The number of gears out of place is " << FindOutOfPlace() << endl;
 	}
+	cout << "The number of gears out of place is " << FindOutOfPlace() << endl;
 }
+double GearBall::futureMove(int move) {
+	int out = 0;
+	int h = 0;
+	if (move == 1) {
+		rotate(0,0,1);
+		setGears();
+		out = FindOutOfPlace();
+		reset();
+		vertTurn = pvertTurn;
+		horizTurn = phorizTurn;
+
+	}
+	else if (move == 2) {
+		rotate(0,1,1);
+		setGears();
+		out = FindOutOfPlace();
+		reset();
+		vertTurn = pvertTurn;
+		horizTurn = phorizTurn;
+	}
+	else if (move == 3) {
+		rotate(0,2,1);
+		setGears();
+		out = FindOutOfPlace();
+		reset();
+		vertTurn = pvertTurn;
+		horizTurn = phorizTurn;
+	}
+	else if (move == 4) {
+		rotate(0,3,1);
+		setGears();
+		out = FindOutOfPlace();
+		reset();
+		vertTurn = pvertTurn;
+		horizTurn = phorizTurn;
+	}
+	h = (double(out) / 40);
+	return h;
+}
+void GearBall::SolveBall() {
+	int n = 2;
+	double up = 0;
+	double down = 0;
+	double left = 0;
+	double right = 0;
+	copyStates();
+	previousState();
+	priority_queue<double> queue;
+
+	while (isSolved == false) {
+		if (FindOutOfPlace() == 0) {
+			isSolved = true;
+		}
+		else {
+			up = n + futureMove(1);
+			queue.push(up);
+
+			down = n + futureMove(2);
+			queue.push(down);
+
+			left = n + futureMove(3);
+			queue.push(left);
+
+			right = n + futureMove(4);
+			queue.push(right);
+
+			if (queue.top() == up) {
+				rotate(0,0,1);
+				queue.pop();
+				cout << "Up" << endl;
+			}
+			else if (queue.top() == down) {
+				rotate(0, 1, 1);
+				queue.pop();
+				cout << "Down" << endl;
+			}
+			else if (queue.top() == left) {
+				rotate(0, 2, 1);
+				queue.pop();
+				cout << "Left" << endl;
+			}
+			else if (queue.top() == right) {
+				rotate(0, 3, 1);
+				queue.pop();
+				cout << "Right" << endl;
+			}
+			else {
+				cout << "There was a problem with a heuristic score" << endl;
+				break;
+			
+			}
+		}
+		n--;
+	}
+	cout << "The ball was solved in: " << n << "moves.";
+
+
+
+
+}
+

@@ -24,12 +24,18 @@
     <ClCompile Include="Gear.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MoveState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GearBall.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Gear.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
