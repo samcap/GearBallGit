@@ -1,6 +1,7 @@
 #include "Gear.h"
 //#include "GearBall.h"
 #include <string>
+#include <iostream>
 
 
 Gear::Gear()
@@ -21,8 +22,9 @@ void Gear::setStates(std::string st0, std::string st1, std::string st2, std::str
 	states[4] = st4;
 	states[5] = st5;
 }
-void Gear::setForward(int count) {
 
+void Gear::setForward(int turn) {
+	count+=turn;
 	if (count == 0) {
 		forward = states[0];
 	}
@@ -62,6 +64,10 @@ void Gear::setForward(int count) {
 	}
 	else if (count == -6) {
 		forward = states[0];
+	}
+	color = forward;
+	if (count >= 6 || count <= -6) {
+		count = 0;
 	}
 }
 std::string Gear::getColor() {

@@ -1,26 +1,27 @@
 #include "MoveState.h"
 #include <iostream>
+#include <string>
+#include "GearBall.h"
+#include "Gear.h"
 
 
 
 MoveState::MoveState()
 {
 }
-
-
 MoveState::~MoveState()
 {
 }
-
-void MoveState::setID(int id) {
-	moveID = id;
+void MoveState::setState(GearBall state) {
+	myState = state;
 }
-void MoveState::setScore(int num) {
-	score = num;
+void MoveState::setScore(int g, int h) {
+	depth = g;
+	score = g+h;
 }
- int MoveState::getID() {
-	 return moveID;
+ GearBall MoveState::getState() {
+	 return myState;
 }
-double MoveState::getScore() {
+int MoveState::getScore() {
 	return score;
 }

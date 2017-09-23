@@ -2,7 +2,7 @@
 #define GEARBALL_H
 #include <string>
 #include "Gear.h"
-#include "MoveState.h"
+
 #include <random>
 #include <ctime>
 using namespace std;
@@ -26,24 +26,21 @@ public:
 	//orient the edge gear pices
 	void setGears();
 	//Find the number of out of place gears realtive to center.
-	int FindOutOfPlace();
-	//soldve the ball using a*
-	void SolveBall();
-	void previousState();
-	void reset();
-	double futureMove(int move);
+	double FindOutOfPlace();
+	void setFace(Gear state[6][13], int vertical, int horizontal);
+	void getFace(Gear (*temp)[6][13],int *vertical, int *horizontal);
+	void setDepth(int n);
+	int getDepth();
+	void cost(double h);
+	double f = 0;
 	
 private:
 	Gear faces[6][13];
 	Gear LastState[6][13];
-	Gear hState[6][13];
 	Gear printFaces[6][13];
-	int vertTurn;
-	int horizTurn;
-	int pvertTurn;
-	int phorizTurn;
-	int fverTurn;
-	int fhorizTurn;
+	int depth;
+	int vertTurn = 0;
+	int horizTurn = 0;
 	mt19937 generator;
 	int previousMove[3];
 	int Move[3];
