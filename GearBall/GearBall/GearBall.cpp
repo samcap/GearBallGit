@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <random>
@@ -136,6 +137,7 @@ GearBall::GearBall(){
 
 		}
 	}
+
 	copyStates();
 	vertTurn = 0;
 	horizTurn = 0;
@@ -176,24 +178,54 @@ double GearBall::FindOutOfPlace() {
 	//setGears();
 	double outOfPlace = 0;
 	double gearOutOfPlace = 0;
+	int correctPlace = 0;
+	int wholeSide = 0;
 	double sum = 0;
+
+	// Loops through every face
 	int len = faces[0][4].getColor().size();
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 13; j++) {
 			if (j != 6) {
+				//findes piece colors that dont match the center peice
 				if (faces[i][j].getColor() != faces[i][6].getColor()) {
 					outOfPlace++;
 				}
+				//finds all the matching pieces
+				if(faces[i][j].getColor() == faces[i][6].getColor() && j != 6){
+					correctPlace++;
+				}
+				//finds the gears that are not in the correct rotation
 				if (faces[i][j].getColor().size() == 3) {
 					gearOutOfPlace++;
 				}
+				
 			}
 		}
-	}
+		//if 12 psieces wehre correct then the whole side was correct
+		if (correctPlace == 12) {
+			wholeSide++;
+			correctPlace = 0;
+		}
+		else {
+			correctPlace = 0;
+		}
 
-	cout << "Gears off center: " << gearOutOfPlace << endl;
-	cout << "Face off center: " << outOfPlace << endl;
-	sum = (double((gearOutOfPlace / 8)) + double((outOfPlace / 24)));
+	}
+	//if two sides are correct adjust the heuristic score
+	if (wholeSide == 2 ) {
+		sum = (double((gearOutOfPlace / 8)) + double((outOfPlace / 40)));
+		if (sum != 0) {
+			sum = sum - 2.5;
+		}
+
+	}
+	// if not then calcualte normally
+	else {
+		sum = (double((gearOutOfPlace / 8)) + double((outOfPlace / 40)));
+	}
+	
+	
 	return sum;
 }
 void GearBall::rotate(int col, int direction, int turn) {
@@ -1044,7 +1076,7 @@ void GearBall::randomize(int turns) {
 	generator.seed(time(0));
 
 	//creates 4 types of random numbers for each valid case
-	uniform_int_distribution<uint32_t> typeTurn(0, 4);
+	uniform_int_distribution<uint32_t> typeTurn(0, 0);
 	uniform_int_distribution<uint32_t> typeRotationCenter(0, 3);
 	uniform_int_distribution<uint32_t> typeRotationOther(0, 1);
 	uniform_int_distribution<uint32_t> numTurns(1, 11);
@@ -1121,8 +1153,8 @@ void GearBall::sideRotate(int rot){
 		faces[4][2] = LastState[4][5];
 		faces[4][3] = LastState[4][1];
 		faces[4][4] = LastState[4][12];
-		faces[4][5] = LastState[4][2];
-		faces[4][7] = LastState[4][10];
+		faces[4][5] = LastState[4][10];
+		faces[4][7] = LastState[4][2];
 		faces[4][8] = LastState[4][0];
 		faces[4][9] = LastState[4][11];
 		faces[4][10] = LastState[4][7];
@@ -1134,8 +1166,8 @@ void GearBall::sideRotate(int rot){
 		faces[5][2] = LastState[5][5];
 		faces[5][3] = LastState[5][1];
 		faces[5][4] = LastState[5][12];
-		faces[5][5] = LastState[5][2];
-		faces[5][7] = LastState[5][10];
+		faces[5][5] = LastState[5][10];
+		faces[5][7] = LastState[5][2];
 		faces[5][8] = LastState[5][0];
 		faces[5][9] = LastState[5][11];
 		faces[5][10] = LastState[5][7];
